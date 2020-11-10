@@ -9,6 +9,7 @@ import os
 import yaml
 import sys
 import getopt
+from io import BytesIO
 
 
 help_doc = """Usage: wwx-robot -k <robot_key> -t <msg_type> -d <msg_data> -f <msg_file_path>
@@ -99,6 +100,31 @@ class WWXRobot(object):
         md5 = hashlib.md5()
         md5.update(image_content)
         image_md5 = md5.hexdigest()
+        body = {
+            'msgtype': 'image',
+            'image': {
+                'base64': image_base64,
+                'md5': image_md5
+            }
+        }
+        self._send(body)
+        
+        def pil_base64(self, image):
+        img_buffer = BytesIO()
+        image.save(img_buffer, format='PNG')
+        byte_data = img_buffer.getvalue()
+        base64_str = base64.b64encode(byte_data)
+        return base64_str
+
+    def pil_hash(self, image):
+        output = BytesIO()
+        image.save(output, format='PNG')
+        hash = hashlib.md5(output.getvalue()).hexdigest()
+        return hash
+
+    def send_image_pil(self, image):
+        image_base64 = str(self.pil_base64(image), encoding='utf-8')
+        image_md5 = self.pil_hash(image)
         body = {
             'msgtype': 'image',
             'image': {
