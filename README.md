@@ -1,11 +1,7 @@
 # Work Weixin Robot
 > 企业微信群机器人
-
-[![Org](https://img.shields.io/static/v1?label=org&message=Truth%20%26%20Insurance%20Office&color=597ed9)](http://bx.baoxian-sz.com)
-![Author](https://img.shields.io/static/v1?label=author&message=v.stone@163.com&color=blue)
 ![License](https://img.shields.io/github/license/seoktaehyeon/work-weixin-robot)
 [![python](https://img.shields.io/static/v1?label=Python&message=3.7&color=3776AB)](https://www.python.org)
-[![PyPI](https://img.shields.io/pypi/v/WorkWeixinRobot.svg)](https://pypi.org/project/WorkWeixinRobot/)
 [![Ref](https://img.shields.io/badge/ref-企业微信群机器人-informational)](https://work.weixin.qq.com/help?person_id=1&doc_id=13376)
 
 ## Installation
